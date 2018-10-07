@@ -13,6 +13,7 @@ module objects {
 
         // private methods
         
+        
         // public methods
         public Start():void {
             this.regX = this.HalfWidth;
@@ -23,6 +24,7 @@ module objects {
 
         public Update():void {
             this.x = managers.Game.stage.mouseX;
+            this._updatedPosition();
 
             // checks the right boundary
             if(this.x > 640 - this.HalfWidth) {

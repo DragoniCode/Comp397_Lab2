@@ -36,6 +36,7 @@ var objects;
             this._verticalSpeed = 5;
             this.y = -this.Height;
             this.x = Math.floor((Math.random() * (640 - this.Width)) + this.HalfWidth);
+            this.IsColliding = false;
         };
         Island.prototype.Start = function () {
             this.Reset();
@@ -43,6 +44,7 @@ var objects;
         Island.prototype.Update = function () {
             this._move();
             this._checkBounds();
+            this._updatedPosition();
         };
         Island.prototype.Destroy = function () {
         };

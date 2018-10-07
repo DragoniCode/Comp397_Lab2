@@ -40,9 +40,15 @@ module scenes {
             this._player.Update();
             this._island.Update();
 
+            //check if player and island are colliding
+            managers.collision.Check(this._player, this._island);
+
             // Update Each cloud in the Cloud Array
-            for (const cloud of this._clouds) {
+
+
+            for (let cloud of this._clouds) {
                 cloud.Update();
+                managers.collision.Check(this._player, cloud);
             }
 
         }
@@ -67,10 +73,12 @@ module scenes {
         // adds player to the scene
         this._player = new objects.Player();
         this.addChild(this._player);
+        
 
         // adds Each Cloud in the Cloud Array to the Scene
-        for (const cloud of this._clouds) {
-            this.addChild(cloud);
+            for (let cloud of this._clouds) {
+                this.addChild(cloud);
+            }
         }
     }
 }

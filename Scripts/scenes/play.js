@@ -38,10 +38,13 @@ var scenes;
             this._ocean.Update();
             this._player.Update();
             this._island.Update();
+            //check if player and island are colliding
+            managers.collision.Check(this._player, this._island);
             // Update Each cloud in the Cloud Array
             for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
                 var cloud = _a[_i];
                 cloud.Update();
+                managers.collision.Check(this._player, cloud);
             }
         };
         Play.prototype.Destroy = function () {

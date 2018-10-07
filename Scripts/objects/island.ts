@@ -29,6 +29,7 @@ module objects {
             this._verticalSpeed = 5;
             this.y = -this.Height;
             this.x = Math.floor((Math.random() * (640 - this.Width)) + this.HalfWidth);
+            this.IsColliding = false;
         }        
         
         public Start(): void {
@@ -38,6 +39,7 @@ module objects {
         public Update(): void {
             this._move();
             this._checkBounds();
+            this._updatedPosition();
         }
 
         public Destroy(): void {
